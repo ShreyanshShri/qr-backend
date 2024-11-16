@@ -1,0 +1,15 @@
+{
+  "name": "qr-attendance-server",
+  "version": "1.0.0",
+  "description": "Server side for qr code attendance system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shreyansh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1"
+  }
+}
