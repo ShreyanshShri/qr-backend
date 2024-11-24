@@ -76,4 +76,15 @@ router.post('/login', async(req, res) => {
     }
 });
 
+router.get("user-info", async (req, res) => {
+    const {user_token} = req.body;
+    try {
+        const user = await User.findOne({ token: user_token });
+        res.status(200).json({batches: user.batches, subjects: user.subjects});
+    } catch (err) {
+        console.log(err.message);        
+        return res.status(500).json({message: 'Server side error'});
+    }
+})
+
 module.exports = router
