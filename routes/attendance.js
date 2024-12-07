@@ -45,10 +45,11 @@ router.post("/punch-in", async (req, res) => {
 
     try {
         const student = await User.findOne({ token: user_token });
-
-        if(student.batches[0] != batch) {
-            return res.status(400).json({ message: "You are not part of the batch." });
-        }
+        console.log(user_token);
+        console.log(student);
+        //if(student.batches[0] != batch) {
+        //    return res.status(400).json({ message: "You are not part of the batch." });
+       // }
 
         const attendance = await Attendance.findOne({
             subject,
