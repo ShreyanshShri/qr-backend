@@ -80,11 +80,14 @@ router.get("user-info", async (req, res) => {
     const {user_token} = req.body;
     try {
         const user = await User.findOne({ token: user_token });
+        if(user == null || user == undefined) {
+            return res.status(400).json({ message: "User not Found" })
+        }
         res.status(200).json({batches: user.batches, subjects: user.subjects});
     } catch (err) {
         console.log(err.message);        
         return res.status(500).json({message: 'Server side error'});
     }
-})
+});
 
 module.exports = router
